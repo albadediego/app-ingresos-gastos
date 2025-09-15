@@ -10,7 +10,22 @@ pip install -r requirements.txt
 
 La librería utilizada en flask: https://flask.palletsprojects.com/es/stable/quickstart
 
-# Ejecución del programa
+# Ejecución del programa por dotenv
+- Instalar dotenv
+```
+pip install python-dotenv
+```
+- Crear archivo .env y dentro agregar los siguientes parámetros
+```
+FLASK_APP=main.py
+FLASK_DEBUG=True
+```
+- Luego ejecutar desde la terminal el comando:
+```
+flask run
+```
+
+# Otra jecución del programa
 - Inicializar parámetros para el servidor de Flask
 - Windows: 
 ```

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresos-Gastos: {{titulo}}</title>
+</head>
+<style>
+    table,th,td{
+        border: 1px solid #9d24d4;
+    }
+</style>
+<body>
+    <header>
+        <div>
+            <a href="/">Inicio</a> |
+            <a href="/new">Nuevo</a> |
+            <a href="/update">Editar</a> |
+            <a href="/delete">Borrar</a> |
+        </div>
+        <h1>Aplicación web Flask BceroXXIV</h1>
+    </header>
+    <section>
+        {# Comentario #}
+        {# Este bloque es para heredar #}
+        {% block pageBase %}
+
+        {% endblock %}
+    </section>
+    <footer>
+        &copy;2025 - todos los derechos reservados - albadediegocorrea@gmail.com
+    </footer>
+
+</body>
+</html>

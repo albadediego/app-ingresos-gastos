@@ -1,27 +1,24 @@
 from app_ingresos_gastos import app
 from flask import render_template
-import csv
+
 
 @app.route("/")
 def index():
-    datos = []
-    #Llamada al archivo csv
-    fichero = open('data/movimientos.csv', 'r')
-    csvReader = csv.reader(fichero, delimiter=',', quotechar='"')
-    for items in csvReader:
-        datos.append(items)
-        
-    return render_template("index.html")
+    datos=[
+        {'fecha': '01/09/2025', 'concepto': 'Salario', 'monto': '1500'},
+        {'fecha': '05/09/2025', 'concepto': 'Ropa', 'monto': '-150'},
+        {'fecha': '10/09/2025', 'concepto': 'Supermercado', 'monto': '-200'}
+    ]
+    return render_template("index.html", data=datos, titulo="Lista")
 
 @app.route("/new")
 def new():
-    return render_template("new.html", titulo="Nuevo", tipoAccion="Registro", tipoBoton="Guardar")
-'''
+        return render_template("new.html", titulo="Nuevo")
+
 @app.route("/delete")
-def new():
-    return render_template("delete.html",titulo="Borrar")
+def delete():
+        return render_template("delete.html", titulo="Borrar")
 
 @app.route("/update")
-def new():
-    return render_template("update.html", titulo="Actualizar",tipoAccion="Actualización", tipoBoton="Editar")
-'''
+def update():
+        return render_template("update.html", titulo="Actualizar")

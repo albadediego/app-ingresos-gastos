@@ -13,7 +13,7 @@ def index():
 
 @app.route("/new")
 def new():
-        return render_template("new.html", titulo="Nuevo")
+        return render_template("new.html", titulo="Nuevo", tipoAccion="Registro", tipoBoton="Guardar")
 
 @app.route("/delete")
 def delete():
@@ -21,4 +21,4 @@ def delete():
 
 @app.route("/update")
 def update():
-        return render_template("update.html", titulo="Actualizar")
+        return render_template("update.html", titulo="Actualizar", tipoAccion="Actualizacion", tipoBoton="Editar")

@@ -35,13 +35,15 @@ def new():
     else: #Esto es el GET 
             return render_template("new.html", titulo="Nuevo", tipoAccion="Registro", tipoBoton="Guardar", dataForm={})
 
-@app.route("/delete")
-def delete():
-        return render_template("delete.html", titulo="Borrar")
+@app.route("/delete/<int:id>")
+def delete(id):
+     return f"El registro para eliminar es el id: {id}"
+    #return render_template("delete.html", titulo="Borrar")
 
-@app.route("/update")
-def update():
-        return render_template("update.html", titulo="Actualizar", tipoAccion="Actualizacion", tipoBoton="Editar", dataForm={})
+@app.route("/update/<int:id>")
+def update(id):
+    return f"El registro para actualizar es el id: {id}"
+    #return render_template("update.html", titulo="Actualizar", tipoAccion="Actualizacion", tipoBoton="Editar", dataForm={})
 
 
 def validarFormulario(datosFormulario):

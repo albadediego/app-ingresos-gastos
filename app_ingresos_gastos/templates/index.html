@@ -8,13 +8,18 @@
         <th>Fecha</th>
         <th>Concepto</th>
         <th>Monto</th>
+        <th>Acciones</th>
     </tr>
     {% for items in data %}
     <tr>
         <td> {{items[0]}} </td>
         <td> {{items[1]}} </td>
         <td> {{items[2]}} </td>
-        <td> {{items[3]}} </td>
+        <td> {{items[3]}} €</td>
+        <td>
+            <a href="/update/{{items[0]}}">Modificar</a>
+            <a href="/delete/{{items[0]}}">Eliminar</a>
+        </td>
     </tr>
     {% endfor %}
 </table>

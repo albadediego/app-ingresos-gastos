@@ -16,11 +16,11 @@ def index():
 
 @app.route("/new", methods=["GET", "POST"])
 def new():
-    if request.method == "POST":
+    if request.method == "POST": #Esto es el POST 
         comprobarErrores = validarFormulario(request.form)
 
         if comprobarErrores:
-              return render_template("new.html", titulo="Nuevo", tipoAccion="Registro", tipoBoton="Guardar", errors=comprobarErrores)
+              return render_template("new.html", titulo="Nuevo", tipoAccion="Registro", tipoBoton="Guardar", errors=comprobarErrores, dataForm=request.form)
         else:
             #Acceder al archivo y configurar para la carga del nuevo registro
             mifichero = open('data/movimientos.csv', 'a',newline="")
@@ -32,8 +32,8 @@ def new():
 
             #Redireccionar a home o lista de registros
             return redirect("/")
-    else:
-            return render_template("new.html", titulo="Nuevo", tipoAccion="Registro", tipoBoton="Guardar")
+    else: #Esto es el GET 
+            return render_template("new.html", titulo="Nuevo", tipoAccion="Registro", tipoBoton="Guardar", dataForm={})
 
 @app.route("/delete")
 def delete():
@@ -41,7 +41,7 @@ def delete():
 
 @app.route("/update")
 def update():
-        return render_template("update.html", titulo="Actualizar", tipoAccion="Actualizacion", tipoBoton="Editar")
+        return render_template("update.html", titulo="Actualizar", tipoAccion="Actualizacion", tipoBoton="Editar", dataForm={})
 
 
 def validarFormulario(datosFormulario):
@@ -51,6 +51,6 @@ def validarFormulario(datosFormulario):
         errores.append("La fecha no puede ser mayor a la actual")
     if datosFormulario['concepto'] == "":
         errores.append("El concepto no puede ir vacío")
-    if datosFormulario['monto'] == "" or int(datosFormulario['monto']) == 0:
+    if datosFormulario['monto'] == "" or float(datosFormulario['monto']) == 0.0:
         errores.append("El monto debe ser distinto de 0 y de vacío")
     return errores

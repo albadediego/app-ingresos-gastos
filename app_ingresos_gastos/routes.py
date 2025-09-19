@@ -17,9 +17,10 @@ def index():
 @app.route("/new", methods=["GET", "POST"])
 def new():
     if request.method == "POST":
-        hoy = str(date.today()) #quita la fecha actual en formato str
-        if request.form['fecha'] > hoy:
-              return render_template("new.html", titulo="Nuevo", tipoAccion="Registro", tipoBoton="Guardar")
+        comprobarErrores = validarFormulario(request.form)
+
+        if comprobarErrores:
+              return render_template("new.html", titulo="Nuevo", tipoAccion="Registro", tipoBoton="Guardar", errors=comprobarErrores)
         else:
             #Acceder al archivo y configurar para la carga del nuevo registro
             mifichero = open('data/movimientos.csv', 'a',newline="")
@@ -41,3 +42,15 @@ def delete():
 @app.route("/update")
 def update():
         return render_template("update.html", titulo="Actualizar", tipoAccion="Actualizacion", tipoBoton="Editar")
+
+
+def validarFormulario(datosFormulario):
+    errores = [] #Se crea la lista para guardar errores
+    hoy = str(date.today())
+    if datosFormulario['fecha'] > hoy:
+        errores.append("La fecha no puede ser mayor a la actual")
+    if datosFormulario['concepto'] == "":
+        errores.append("El concepto no puede ir vacío")
+    if datosFormulario['monto'] == "" or int(datosFormulario['monto']) == 0:
+        errores.append("El monto debe ser distinto de 0 y de vacío")
+    return errores

@@ -17,4 +17,12 @@
 <button>
     <a href="/">Volver</a>
 </button>
+
+<div>
+    <tr>
+        {% for item in errors %}
+            <td>{{item}}</td>
+        {% endfor %}
+    </tr>
+</div>
 {% endblock %}

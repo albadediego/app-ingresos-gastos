@@ -10,12 +10,16 @@
     </tr>
     {% for items in data %}
     <tr>
-        <td> {{items['fecha']}} </td>
-        <td> {{items['concepto']}} </td>
-        <td> {{items['monto']}} </td>
+        <td> {{items[0]}} </td>
+        <td> {{items[1]}} </td>
+        <td> {{items[2]}} </td>
     </tr>
     {% endfor %}
 </table>
-
-<a href="/new">Nuevo Registro</a>
+<br>
+<button>
+    <a href="/new">
+    Nuevo Registro
+    </a>
+</button>
 {% endblock %}

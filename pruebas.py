@@ -22,7 +22,7 @@ for items in lectura:
 
 print('Mi lista: ', midato[0][1])
 '''
-
+'''
 #Ejemplo de regitro de datos en csv
 import csv
 
@@ -31,7 +31,7 @@ lectura = csv.writer(mifichero,delimiter=',',quotechar='"')
 lectura.writerow(['16/09/2025','almuerzo','-25'])
 
 mifichero.close()
-
+'''
 '''
 from datetime import date
 hoy = str(date.today())

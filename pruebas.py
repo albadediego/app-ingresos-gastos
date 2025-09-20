@@ -39,3 +39,7 @@ hoy = str(date.today())
 if hoy == '2025-09-16':
     print("es hoy")
 '''
+
+#Como conseguir el ultimo id de esta lista
+lista = [['1', '2025-09-01', 'Salario', '1500'], ['2', '2025-09-05', 'Ropa', '-150'], ['3', '2025-09-10', 'Supermercado', '-200']]
+print(lista[-1][0])

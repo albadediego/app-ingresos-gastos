@@ -2,4 +2,12 @@
 {% block pageBase %}
 
 <h1>Vista para eliminar registros</h1>
+<label>Fecha: {{data[1]}}</label><br>
+<label>Concepto: {{data[2]}}</label><br>
+<label>Monto: {{data[3]}}</label><br>
+
+<form method="POST" action="/delete/{{data[0]}}">
+    <button type="submit" >Borrar</button>
+</form>
+
 {% endblock %}

@@ -3,7 +3,7 @@
 {% block pageBase %}
 <h2>{{tipoAccion}} de Ingresos y Gastos</h2>
 
-<form method="POST">
+<form method="POST" action="{{urlForm}}">
     <label for="fecha">Fecha:</label><br>
     <input type="date" name="fecha" value="{{dataForm['fecha']}}"><br>
     <label for="concepto">Concepto:</label><br>

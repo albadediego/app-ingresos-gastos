@@ -1,28 +1,38 @@
 {% extends "base.html" %}
 
 {% block pageBase %}
-<h2>{{tipoAccion}} de Ingresos y Gastos</h2>
 
 <form method="POST" action="{{urlForm}}">
-    <label for="fecha">Fecha:</label><br>
-    <input type="date" name="fecha" value="{{dataForm['fecha']}}"><br>
-    <label for="concepto">Concepto:</label><br>
-    <input type="text" name="concepto" value="{{dataForm['concepto']}}"><br>
-    <label for="monto">Monto:</label><br>
-    <input type="number" name="monto" step="0.01" value="{{dataForm['monto']}}" id="quantity"><br><br>
-    <button type="submit" >{{tipoBoton}}</button>
+  <fieldset>
+    <legend><h2>{{tipoAccion}} de Ingresos y Gastos</h2></legend>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Fecha:</label>
+      <input type="date" name="fecha" value="{{dataForm['fecha']}}" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Concepto:</label>
+      <input type="text" name="concepto" value="{{dataForm['concepto']}}" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Monto:</label>
+      <input type="number" name="monto" value="{{dataForm['monto']}}" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">{{tipoBoton}}</button>
+  </fieldset>
 </form>
 
-<br>
-<button>
-    <a href="/">Volver</a>
-</button>
+    <a class="btn btn-secondary mt-4" href="/">Volver</a>
 
-<div style="color: red;">
-    <ul>
+
+
+    
         {% for item in errors %}
-            <li>*{{item}}</li>
+        <div class="alert alert-danger mt-4" role="alert">
+          <ul>
+            <li>{{item}}</li>
+          </ul>
+        </div>
         {% endfor %}
-    </ul>
-</div>
+    
+
 {% endblock %}

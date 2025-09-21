@@ -2,7 +2,21 @@
 
 {% block pageBase %}
 <h2>Esto es una lista de ingresos y gastos</h2>
-<table>
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      Total: {{total.suma}}
+    </div>
+    <div class="col">
+      Ingresos: {{total.ingresos}}
+    </div>
+    <div class="col">
+      Gastos: {{total.gastos}}
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
     <tr>
         <th>#</th>
         <th>Fecha</th>
@@ -17,16 +31,15 @@
         <td> {{items[2]}} </td>
         <td> {{items[3]}} €</td>
         <td>
-            <a href="/update/{{items[0]}}">Modificar</a>
-            <a href="/delete/{{items[0]}}">Eliminar</a>
+            <a href="/update/{{items[0]}}" class="btn btn-primary btn-sm">Modificar</a>
+            <a href="/delete/{{items[0]}}" class="btn btn-danger btn-sm">Eliminar</a>
         </td>
     </tr>
     {% endfor %}
 </table>
 <br>
-<button>
-    <a href="/new">
+    <a href="/new" class="btn btn-success">
     Nuevo Registro
     </a>
-</button>
+    
 {% endblock %}

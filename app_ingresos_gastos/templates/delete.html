@@ -1,13 +1,19 @@
 {% extends "base.html" %}
 {% block pageBase %}
 
-<h1>Vista para eliminar registros</h1>
-<label>Fecha: {{data[1]}}</label><br>
-<label>Concepto: {{data[2]}}</label><br>
-<label>Monto: {{data[3]}}</label><br>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Vista para eliminar registros</h5>
 
-<form method="POST" action="/delete/{{data[0]}}">
-    <button type="submit" >Borrar</button>
-</form>
+    <p class="card-text">Fecha: {{data[1]}}</p>
+    <p class="card-text">Concepto: {{data[2]}}</p>
+    <p class="card-text">Monto: {{data[3]}}</p>
+    <form method="POST" action="/delete/{{data[0]}}">
+        <button type="submit" class="btn btn-primary">Borrar</button>
+    </form>
+  </div>
+</div>
+
+
 
 {% endblock %}

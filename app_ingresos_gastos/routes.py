@@ -7,7 +7,8 @@ from app_ingresos_gastos.models import *
 @app.route("/")
 def index():
     datos = select_all()
-    return render_template("index.html", data=datos, titulo="Lista")
+    totales = total_view()
+    return render_template("index.html", data=datos, titulo="Lista", total=totales)
 
 @app.route("/new", methods=["GET", "POST"])
 def new():

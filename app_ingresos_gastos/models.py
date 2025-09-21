@@ -11,7 +11,6 @@ def select_all():
     fichero.close()
 
     return datos
-
 def select_by(id,condicion):
         miFicheroBuscado = open(MOVIMIENTOS_FILE, 'r')
         lecturaFichero = csv.reader(miFicheroBuscado, delimiter=',',quotechar='"')
@@ -91,3 +90,29 @@ def update_by(id, registros, requestForm):
     csvWriter.writerows(nuevosDatos)
     
     fichero_update.close()
+
+def total_view():
+    datos=[]
+    sumatorio = 0
+    total_ingresos = 0
+    total_gastos = 0
+
+    #Llamada al archivo csv
+    fichero = open(MOVIMIENTOS_FILE, 'r')
+    csvReader = csv.reader(fichero, delimiter=',',quotechar='"')
+    for items in csvReader:
+        datos.append(items)
+        sumatorio += float(items[-1])
+        if float(items[-1])<0:
+            total_gastos += float(items[-1])
+        else:
+            total_ingresos += float(items[-1])
+
+    todos = dict()
+    todos['suma'] = sumatorio
+    todos['ingresos'] = total_ingresos
+    todos['gastos'] = total_gastos
+
+    fichero.close()
+
+    return todos

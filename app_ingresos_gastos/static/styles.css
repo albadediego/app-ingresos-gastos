@@ -1,0 +1,16 @@
+    table,th,td{
+        border: 1px solid #9d24d4;
+    }
+
+    .miEstilo{
+        color:rgb(255, 115, 0);
+        text-decoration: solid;
+    }
+    .miEstilo2{
+        color: rgb(94, 122 , 9);
+        text-decoration: overline;
+    }
+
+    #quantity{
+        background-color: aqua;
+    }
